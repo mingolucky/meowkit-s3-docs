@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "palm",
-  "name": "MeowKit-S3",
+  "name": "MeowKit",
 
   "colors": {
     "primary": "#BBE700",
@@ -25,6 +25,12 @@
           "firmware-update",
           "main-interface",
           "settings"
+        ]
+      },
+      {
+        "group": "Desktop Gadgets",
+        "pages": [
+          "untitled-page"
         ]
       }
     ]
@@ -77,5 +83,6 @@
   "favicon": {
     "light": "/images/512x512pxapp网站图标dark.png",
     "dark": "/images/512x512pxapp网站图标dark.png"
-  }
+  },
+  "description": "This is a pocket-sized multi-tool device for Smart Gadgets, Hacker Protocol, Extend GPIO, Edge AI, open-source SDK, and more.\nBuilt for makers and hackers — a powerful yet easy-to-use development platform."
 }
