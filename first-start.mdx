@@ -6,6 +6,10 @@ title: "First start"
 
 Thank you so much for choosing MeowKit! We’re excited for you to explore everything this little device has to offer and discover the many ways you can build, experiment, and create with it. We can’t wait to see what you’ll make, explore, and accomplish with MeowKit. **Enjoy your new MeowKit, and let the journey begin!**
 
+# **MeowKit-S3 — Quick Start Guide**
+
+[**Quick Start [Guide.video](http://Guide.video)**]
+
 ---
 
 # **What's in the box**
@@ -25,17 +29,24 @@ press and hold the power button for about 1–2 seconds. Once powered on, the sc
 ![Power On](/images/power-on.png "Power On")
 
 <Warning>
-  Notes
-
-  - If the device does not turn on, try charging it for a few minutes first
-  - Avoid repeatedly pressing the power button during startup To power off the device, press and hold the power button for about 3–4 seconds until the shutdown screen appears.
+  Press and hold the power button for about 4–5 seconds. The screen will turn off automatically once the device has powered down.
 </Warning>
 
 # Rebooting
 
-Briefly short the `RESET` and `GND` pins on the GPIO header with a jumper wire or Dupont pin to reboot the device automatically.
+You can reboot the device from the system interface or directly through the GPIO header.
+
+## Software reboot
+
+![Software Reboot](/images/Software-reboot.png "Software Reboot")
+
+Once the device is powered on, go to `Advanced` > `System`, then tap `Reboot`. The device will restart automatically.
+
+## Hardware reboot
 
 ![Rebooting](/images/rebooting.jpg "Rebooting")
+
+Briefly short the `RESET` and `GND` pins on the GPIO header with a jumper wire or Dupont pin. The device will restart immediately.
 
 ---
 
@@ -48,53 +59,6 @@ MeowKit supports FAT16 and FAT32 file systems and is compatible with most microS
 Higher-capacity cards may require longer initialization times and can vary depending on card quality and formatting. If the card is not recognized properly, please reformat it to FAT32 before use.
 
 ![SD Card Insertion](/images/SD-Card-Insertion.png "SD Card Insertion")
-
-<Warning>
-  **Notes**
-
-  You need a microSD card to use the device
-
-  MeowKit doesn't come with a microSD card, so you'll need topurchase one separately.
-</Warning>
-
-# **Update Firmware**
-
-Keep your MeowKit up to date with the latest official firmware. The update runs directly from your browser.
-
-Before you begin, make sure MeowKit is **powered off** and the USB cable is disconnected.
-
-<Steps>
-  <Step title="**Enter Download Mode.**">
-    Insert a Dupont jumper wire through the hole on the back of MeowKit until it presses the **BOOT** button. Keep holding BOOT, then press and hold the **Power** button for **1–2 seconds** and release it. Keep BOOT pressed throughout, then remove the jumper wire. The screen will remain off.
-  </Step>
-  <Step title="**Connect MeowKit.**">
-    Use a **USB Type-C cable** to connect Meowkit to your computer.
-  </Step>
-  <Step title="**Open the download page.**">
-    Go to [https://meowkit.cc/pages/download](https://meowkit.cc/pages/download) and click "**Connect and install**".
-  </Step>
-  <Step title="**Select the serial port.**">
-    Choose **USB JTAG/serial debug unit (COMxx)**, such as COM16, then click "**Connect**".
-  </Step>
-  <Step title="**Select the firmware.**">
-    Click "**Install Meowkit S3**".
-  </Step>
-  <Step title="**Confirm the installation.**">
-    Check "**Erase device**", then click "**Next**".
-  </Step>
-  <Step title="**Start the update.**">
-    Confirm the installation and click "**Install**" to begin the firmware update.
-  </Step>
-  <Step title="**Wait for completion.**">
-    Wait while the installation progress reaches 100%. When "Installation complete" appears,
-
-    your Meowkit is ready to use.
-  </Step>
-</Steps>
-
-<Note>
-  Keep MeowKit connected throughout the installation. **Erase device** will remove stored settings and data.
-</Note>
 
 ---
 
