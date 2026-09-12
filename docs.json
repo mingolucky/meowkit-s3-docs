@@ -22,6 +22,7 @@
         "group": "Getting started",
         "pages": [
           "first-start",
+          "firmware-update",
           "main-interface",
           "settings"
         ]

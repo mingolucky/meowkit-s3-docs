@@ -1,0 +1,84 @@
+---
+title: "Firmware Update"
+---
+
+This guide walks you through your first firmware update. Updating the firmware does not modify files stored on the microSD card.
+
+---
+
+# What you need
+
+- A Windows, macOS, or Linux computer
+- A USB Type-C Cable
+- The latest version of Google Chrome or Microsoft Edge
+- A MeowKit with at least 30% battery 
+
+> MeowKit has one USB port. File transfer, USB features, and firmware updates all share this port and cannot be used at the same time.
+
+---
+
+# Start the update
+
+Before you begin, make sure MeowKit is **powered off** and the USB cable is disconnected.
+
+<Steps>
+  <Step title="**Enter Download Mode.**">
+    Insert a Dupont jumper wire through the opening on the back of MeowKit until it presses and holds the `BOOT` button.
+
+    Keep holding `BOOT`, then press and hold the Power button for 1–2 seconds. Release the Power button, then release `BOOT` and remove the jumper wire.
+
+    The screen will remain off in Download Mode. This is expected.
+  </Step>
+  <Step title="**Connect MeowKit.**">
+    Use a **USB Type-C cable** to connect Meowkit to your computer.
+  </Step>
+  <Step title="**Open the download page.**">
+    Go to [https://meowkit.cc/pages/download](https://meowkit.cc/pages/download) and click "**Connect and install**".
+  </Step>
+  <Step title="**Select the serial port.**">
+    Choose **USB JTAG/serial debug unit (COMxx)**, such as COM16, then click "**Connect**".
+
+    On Windows, the port name also includes a COM number, such as `COM16`. Port names may appear differently on macOS and Linux.  
+  </Step>
+  <Step title="**Select the firmware.**">
+    Click "**Install Meowkit S3**".
+  </Step>
+  <Step title="**Confirm the installation.**">
+    Check "**Erase device**", then click "**Next**".
+
+    > **Important:** Erasing the device removes settings and data stored in MeowKit’s internal memory. Files on the microSD card are not affected.
+  </Step>
+  <Step title="**Start the update.**">
+    Confirm the installation and click "**Install**" to begin the firmware update.
+  </Step>
+  <Step title="**Wait for completion.**">
+    Keep MeowKit connected while the firmware is being installed. Do not close the browser or disconnect the USB cable.
+
+    When the progress reaches 100% and **Installation complete** appears, the update is finished.
+  </Step>
+</Steps>
+
+If MeowKit does not restart automatically, disconnect the USB cable and power it on normally.
+
+---
+
+# If you do not see a serial port
+
+Try these steps in order:
+
+1. Disconnect the USB cable and power off MeowKit.
+2. Connect directly to another USB port on your computer. Do not use a USB hub or dock.
+3. Try another USB-C cable that supports data transfer.
+4. Enter Download Mode again: hold BOOT, power on MeowKit, wait 2 seconds, release BOOT, then reconnect the USB cable.
+5. Close any software that may be using the serial port, such as the PlatformIO Serial Monitor.
+6. Reload the download page and click Connect and install again. If the port still does not appear, try another computer.
+
+---
+
+# If the update is interrupted
+
+An interrupted installation does not permanently damage MeowKit.
+
+Power off the device, enter Download Mode again, and restart the installation. MeowKit may not start normally until the firmware has been written successfully.
+
+---
