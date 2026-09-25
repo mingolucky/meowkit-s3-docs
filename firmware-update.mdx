@@ -23,6 +23,8 @@ Before you begin, make sure MeowKit is **powered off** and the USB cable is disc
 
 <Steps>
   <Step title="**Enter Download Mode.**">
+    <video src="videos/Enter-Download-Mode.mp4" controls />
+
     Insert a Dupont jumper wire through the opening on the back of MeowKit until it presses and holds the `BOOT` button.
 
     Keep holding `BOOT`, then press and hold the Power button for 1–2 seconds. Release the Power button, then release `BOOT` and remove the jumper wire.
@@ -34,11 +36,15 @@ Before you begin, make sure MeowKit is **powered off** and the USB cable is disc
   </Step>
   <Step title="**Open the download page.**">
     Go to [https://meowkit.cc/pages/download](https://meowkit.cc/pages/download) and click "**Connect and install**".
+
+    ![Image](/images/image.png "Image")
   </Step>
   <Step title="**Select the serial port.**">
     Choose **USB JTAG/serial debug unit (COMxx)**, such as COM16, then click "**Connect**".
 
     On Windows, the port name also includes a COM number, such as `COM16`. Port names may appear differently on macOS and Linux.  
+
+    ![Image](/images/image-1.png "Image")
   </Step>
   <Step title="**Select the firmware.**">
     Click "**Install Meowkit S3**".
@@ -50,11 +56,29 @@ Before you begin, make sure MeowKit is **powered off** and the USB cable is disc
   </Step>
   <Step title="**Start the update.**">
     Confirm the installation and click "**Install**" to begin the firmware update.
+
+    ![Image](/images/image-2.png "Image")
   </Step>
   <Step title="**Wait for completion.**">
     Keep MeowKit connected while the firmware is being installed. Do not close the browser or disconnect the USB cable.
 
     When the progress reaches 100% and **Installation complete** appears, the update is finished.
+
+    ![Image](/images/image-3.png "Image")
+  </Step>
+  <Step title="**Restart MeowKit.**">
+    After the installation is complete, restart MeowKit to boot into the newly installed firmware.
+
+    You can restart it in either of the following ways:
+
+    - **Power button:** Press and hold the **Power** button for 4–5 seconds to power off MeowKit. Then press the **Power** button normally to turn it on again.
+    - **RESET + GND:** Briefly connect **RESET** and **GND** to exit Download Mode and reboot MeowKit.
+
+    After restarting, MeowKit will boot normally and run the **latest installed firmware**.
+
+    <Warning>
+      **Note:** If the screen remains off after installation, use the **Power button** method above to fully power off MeowKit before turning it on again.
+    </Warning>
   </Step>
 </Steps>
 
