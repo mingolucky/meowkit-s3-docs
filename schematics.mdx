@@ -1,5 +1,14 @@
 ---
-title: "Schematics"
+title: "MeowKit-S3 Schematics & PCB"
+sidebarTitle: "Schematics"
+og:title: "MeowKit-S3 Schematics & PCB Reference"
+og:url: "https://docs.meowkit.cc/schematics"
+keywords:
+  - "MeowKit-S3 schematics"
+  - "MeowKit PCB"
+  - "ESP32-S3 schematic"
+  - "MeowKit hardware"
+  - "GPIO schematic"
 ---
 
 Explore MeowKit’s hardware schematics and see how its modules are connected. They provide a detailed reference for hardware development, low-level debugging, and learning how MeowKit works at the hardware level.
@@ -8,13 +17,13 @@ Explore MeowKit’s hardware schematics and see how its modules are connected. T
 
 # Main PCB
 
-![Main Pcb Font](/images/main-pcb-font.png "Main Pcb Font")
+![Front side of the MeowKit-S3 main PCB](/images/main-pcb-font.png "Main Pcb Font")
 
 **Top Silkscreen**
 
 <img
   src="/images/top-silkscreen-logo.png"
-  alt="Top Silkscreen Logo"
+  alt="MeowKit-S3 logo on the main PCB silkscreen"
   title="Top Silkscreen Logo"
   className="mx-auto"
 />
@@ -29,7 +38,7 @@ Mark the designated 3M adhesive placement area on the bottom silkscreen using a 
 
 Add the label:
 
-![Main Pcb Back](/images/main-pcb-back.png "Main Pcb Back")
+![Back side of the MeowKit-S3 main PCB](/images/main-pcb-back.png "Main Pcb Back")
 
 Keep the adhesive placement area free from components, vias, test points, and other features that may interfere with adhesive application or mechanical assembly.
 
@@ -63,7 +72,7 @@ QC:
 
 ## Main blocks overview
 
-![Main Blocks Overview](/images/Main-blocks-overview.png "Main Blocks Overview")
+![MeowKit-S3 main PCB functional block overview](/images/Main-blocks-overview.png "Main Blocks Overview")
 
 Every block is shown in detail as a separate document below.
 
@@ -71,7 +80,7 @@ Every block is shown in detail as a separate document below.
 
 ## Power
 
-![Power](/images/Power.png "Power")
+![MeowKit-S3 power circuit schematic](/images/Power.png "Power")
 
 The device uses the **AXP173 PMIC** as the central power management controller, integrating USB power input, Li-ion battery charging, power-path switching, voltage regulation, and system monitoring.
 
@@ -91,47 +100,47 @@ Through the **I²C control interface**, the main processor can monitor power sta
 
 ## MCU
 
-![MCU](/images/MCU.png "MCU")
+![MeowKit-S3 ESP32-S3 MCU circuit schematic](/images/MCU.png "MCU")
 
 ## USB
 
-![USB](/images/USB.png "USB")
+![MeowKit-S3 USB circuit schematic](/images/USB.png "USB")
 
 ## Display
 
-![Display](/images/Display.png "Display")
+![MeowKit-S3 display circuit schematic](/images/Display.png "Display")
 
 ## Buttons & Joystick
 
-![Buttons & Joystick](/images/Buttons-&-Joystick.png "Buttons & Joystick")
+![MeowKit-S3 buttons and five-way joystick schematic](/images/Buttons-&-Joystick.png "Buttons & Joystick")
 
 ## Audio
 
-![Audio](/images/Audio.png "Audio")
+![MeowKit-S3 audio circuit schematic](/images/Audio.png "Audio")
 
 ## Storage
 
-![Storage](/images/Storage.png "Storage")
+![MeowKit-S3 microSD storage circuit schematic](/images/Storage.png "Storage")
 
 ## Sensor
 
-![Sensor](/images/Sensor.png "Sensor")
+![MeowKit-S3 sensor circuit schematic](/images/Sensor.png "Sensor")
 
 ## LED
 
-![LED](/images/LED.png "LED")
+![MeowKit-S3 RGB LED circuit schematic](/images/LED.png "LED")
 
 ## RTC
 
-![RTC](/images/RTC.png "RTC")
+![MeowKit-S3 real-time clock circuit schematic](/images/RTC.png "RTC")
 
 ## IO Expander
 
-![IO Expander](/images/IO-Expander.png "IO Expander")
+![MeowKit-S3 IO expander circuit schematic](/images/IO-Expander.png "IO Expander")
 
 ## GPIO
 
-![GPIO 1](/images/GPIO-1.png "GPIO 1")
+![MeowKit-S3 GPIO circuit schematic](/images/GPIO-1.png "GPIO 1")
 
 A 1×16 pin (2.54 mm) DuPont female expansion header provides native support for SPI,  I²C, and general-purpose GPIO interfaces, freeing the device from single-function limitations.<br /> It can become anything you choose to define — a retro camera, digital level, tachometer, distance meter, Morse code transmitter/receiver, and much more.
 
@@ -139,4 +148,4 @@ A 1×16 pin (2.54 mm) DuPont female expansion header provides native support for
 
 # NFC
 
-![NFC](/images/NFC.png "NFC")
+![MeowKit-S3 NFC circuit schematic](/images/NFC.png "NFC")
