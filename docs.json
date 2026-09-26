@@ -22,6 +22,7 @@
         "group": "Getting started",
         "pages": [
           "first-start",
+          "transparent-shell-replacement",
           "firmware-update",
           "main-interface",
           "settings"
