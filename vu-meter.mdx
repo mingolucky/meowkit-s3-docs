@@ -1,0 +1,55 @@
+---
+title: "VU Meter"
+sidebarTitle: "VU Meter"
+description: "See the sound around you."
+keywords:
+  - "MeowKit-S3 VU Meter"
+  - "audio level display"
+  - "analog VU meter"
+  - "MeowKit microphone"
+  - "sound visualization"
+og:title: "VU Meter for MeowKit-S3"
+og:url: "https://docs.meowkit.cc/vu-meter"
+---
+
+VU Meter turns nearby sound into a responsive analog display. Speak, play music, or make a sound—the needle follows its level in real time.
+
+中文：VU Meter 将周围的声音呈现为实时变化的模拟指针。说话、播放音乐或轻敲桌面，指针都会随声音强弱移动。
+
+## How it works
+
+MeowKit captures sound through its built-in microphones and converts the signal into a smooth level reading. The scale runs from **−30 VU** to **+3 VU**.
+
+中文：MeowKit 通过内置麦克风采集声音，并将信号转换为平滑的音量读数。表盘范围为 **−30 VU 至 +3 VU**。
+
+VU Meter is designed for visualization. It is not a calibrated sound-pressure meter.
+
+中文：VU Meter 用于直观观察声音变化，不属于经过校准的声压测量仪器。
+
+## Use VU Meter
+
+Open **Apps → VU Meter**. No setup is required.
+
+For a clearer response, keep the microphone opening unobstructed and place MeowKit near the sound source.
+
+中文：打开 **Apps → VU Meter** 即可使用，无需额外设置。
+
+请勿遮挡麦克风开孔。将 MeowKit 靠近声源，可以获得更明显的指针变化。
+
+Long-press **B** to exit.
+
+中文：长按 **B** 退出应用。
+
+## If the background is missing
+
+VU Meter loads its dial image from:
+
+`/vu_meter/vu_meter_bg.png`
+
+Make sure the file is present on the SD card. If it cannot be loaded, the screen displays **BG PNG not found**.
+
+中文：VU Meter 会从 SD 卡读取表盘图片：
+
+`/vu_meter/vu_meter_bg.png`
+
+如果文件缺失，屏幕会显示 **BG PNG not found**。

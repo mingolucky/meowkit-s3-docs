@@ -1,0 +1,75 @@
+---
+title: "PC Monitor"
+sidebarTitle: "PC Monitor"
+description: "Keep essential PC performance data in view."
+keywords:
+  - "MeowKit-S3 PC Monitor"
+  - "Windows hardware monitor"
+  - "CPU GPU monitor"
+  - "serial PC display"
+  - "Phat-Stats"
+og:title: "PC Monitor for MeowKit-S3"
+og:url: "https://docs.meowkit.cc/pc-monitor"
+---
+
+PC Monitor gives your computer a dedicated status screen. CPU, GPU, memory, temperature, and load information stay visible without taking space on your desktop.
+
+中文：PC Monitor 为电脑提供一块独立的状态屏幕。CPU、GPU、内存、温度与负载信息始终可见，不占用桌面空间。
+
+## What it shows
+
+- CPU model, temperature, load, and frequency
+- GPU model, temperature, load, and video memory
+- Used and total system memory
+
+中文：
+
+- CPU 型号、温度、负载与频率
+- GPU 型号、温度、负载与显存
+- 系统内存已用容量与总容量
+
+Values appear after MeowKit receives the first complete data frame from the computer. A blank screen means the app is waiting for data.
+
+中文：MeowKit 收到第一帧完整数据后才会显示数值。页面为空时，表示应用仍在等待电脑发送数据。
+
+## Before you start
+
+PC Monitor requires:
+
+- A Windows computer
+- A USB data cable
+- Compatible host-monitor software
+- MeowKit with the latest firmware
+
+The implementation is adapted for MeowKit from the PC monitoring approach used by [Phat-Stats](https://github.com/koogar/Phat-Stats), created by Rupert Hirst, Colin Conway, and contributors.
+
+## Connect
+
+1. Connect MeowKit to the computer with a USB data cable.
+2. Start the compatible monitoring software on Windows.
+3. Select MeowKit’s serial port.
+4. Open **Apps → PC Monitor**.
+5. Keep the monitoring software running while using the app.
+
+中文：
+
+1. 使用 USB 数据线连接 MeowKit 与电脑。
+2. 在 Windows 中启动兼容的监控软件。
+3. 选择 MeowKit 对应的串口。
+4. 打开 **Apps → PC Monitor**。
+5. 使用期间请保持监控软件运行。
+
+Long-press **B** to exit.
+
+中文：长按 **B** 退出应用。
+
+## No data on screen
+
+Check that:
+
+- The USB cable supports data transfer
+- The correct serial port is selected
+- No other program is occupying the serial port
+- The monitoring software is actively sending data
+
+中文：如果没有数据显示，请确认 USB 数据线支持数据传输、串口选择正确、串口未被其他程序占用，并且监控软件正在发送数据。
