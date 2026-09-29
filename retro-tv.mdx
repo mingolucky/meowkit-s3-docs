@@ -138,16 +138,15 @@ MeowKit 使用 2.4 GHz Wi-Fi。电脑可以使用 Wi-Fi 或以太网连接，但
   <Accordion title="ScreenShotSender cannot connect">
     Confirm that:
 
-    - The IP address matches the address displayed by MeowKit.
+    - The IP address exactly matches the address displayed by MeowKit.
     - MeowKit and the computer are on the same local network.
     - RetroTV is still open on MeowKit.
-    - Windows Firewall allows ScreenShotSender on the current **Private network**.
-    - Client isolation or AP isolation is disabled on the router.
-    - Local TCP port `63333` is not blocked.
+    - Windows Firewall allows ScreenShotSender on the current Private network.
+    - Your router is not using client isolation or AP isolation.
 
-    Guest networks often prevent devices from communicating. Use a normal trusted network instead.
+    Guest networks often prevent connected devices from communicating. Use a normal trusted network instead.
 
-    中文：确认 IP 地址与 MeowKit 显示的一致，两台设备位于同一局域网，RetroTV 仍保持运行，Windows 防火墙允许 ScreenShotSender 访问当前专用网络，路由器未开启客户端隔离或 AP 隔离，并且本地 TCP 端口 `63333` 未被阻止。访客网络通常会阻止设备之间通信，请改用普通的可信网络。
+    RetroTV uses a local TCP connection on port `63333`. Confirm that your firewall or network settings do not block this port.
   </Accordion>
 
   <Accordion title="The IP address has changed">
