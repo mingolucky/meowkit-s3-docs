@@ -36,13 +36,6 @@ RetroTV has two parts:
 
 Both devices must be able to communicate on the same local network. Image quality and frame rate depend on your Wi-Fi connection, computer performance, capture size, and **Quality** setting.
 
-中文：RetroTV 由两部分组成：
-
-- **MeowKit** 接收并显示图像。
-- **ScreenShotSender** 截取 Windows 桌面的指定区域，并将图像发送到 MeowKit。
-
-两台设备必须位于可互相通信的同一局域网中。画质和帧率取决于 Wi-Fi 连接、电脑性能、截取区域大小和 **Quality** 设置。
-
 ---
 
 ## Before you start
@@ -56,19 +49,8 @@ Prepare the following:
 
 MeowKit connects through 2.4 GHz Wi-Fi. Your computer may use Wi-Fi or Ethernet, as long as it is on the same local network.
 
-中文：开始前，请准备：
-
-- 一台 Windows 电脑
-- 已安装 RetroTV 的 MeowKit
-- 支持 2.4 GHz Wi-Fi 的本地网络
-- [ScreenShotSender](https://github.com/lovyan03/ESP32_ScreenShotReceiver)
-
-MeowKit 使用 2.4 GHz Wi-Fi。电脑可以使用 Wi-Fi 或以太网连接，但必须与 MeowKit 位于同一局域网。
-
 <Warning>
   Download ScreenShotSender only from the upstream open-source repository. Do not disable Windows Defender or Real-time Protection to run an unverified file. If needed, review and build the included C# source code yourself.
-
-  中文：请仅从上游开源仓库下载 ScreenShotSender。不要为了运行未经确认的文件而关闭 Windows Defender 或实时保护；如有疑虑，请检查并自行编译其中的 C# 源代码。
 </Warning>
 
 ---
@@ -78,8 +60,6 @@ MeowKit 使用 2.4 GHz Wi-Fi。电脑可以使用 Wi-Fi 或以太网连接，但
 <Steps>
   <Step title="**Connect MeowKit to Wi-Fi.**">
     Complete the Wi-Fi setup in [Settings](/settings#wlan-setup). Connect MeowKit and your computer to the same local network.
-
-    中文：在 [Settings](/settings#wlan-setup) 中完成 Wi-Fi 设置，并将 MeowKit 与电脑连接到同一局域网。
   </Step>
   <Step title="**Open RetroTV.**">
     Go to **Applications → RetroTV**. Once connected, MeowKit displays its IP address, such as `10.0.1.135`.
