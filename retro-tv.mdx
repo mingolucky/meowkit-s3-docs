@@ -9,91 +9,124 @@ keywords:
   - "wireless PC display"
   - "MeowKit Windows screen"
   - "ScreenShotSender"
+description: "Stream a selected area of your Windows desktop to MeowKit-S3 over local Wi-Fi with RetroTV and ScreenShotSender."
 ---
 
-![RetroTV wireless PC display running on MeowKit-S3](/images/retro-tv.webp "Retro Tv")
+![RetroTV wireless PC display running on MeowKit-S3](/images/retro-tv.webp "RetroTV running on MeowKit-S3")
 
-Turn MeowKit into a tiny wireless screen for your computer.
+Turn MeowKit into a small wireless display for your Windows computer.
 
-RetroTV captures a selected area of your Windows desktop, converts it into a stream of JPEG images, and sends it to MeowKit over your local Wi-Fi network.
+RetroTV captures a selected area of your desktop and streams it to MeowKit as a sequence of JPEG images over your local network. Use it for pixel art, retro games, album covers, dashboards, photo slideshows, or video.
 
-Use it as a pocket-sized companion display for pixel art, retro games, photo slideshows, album covers, dashboards, or videos. It is not a full-size monitor—and that is part of the charm.
+中文：RetroTV 可将 MeowKit 变成一块小巧的 Windows 无线显示屏。它会截取电脑桌面的指定区域，将画面转换为连续的 JPEG 图像，并通过局域网发送到 MeowKit。你可以用它显示像素画、复古游戏、专辑封面、仪表盘、照片轮播或视频。
+
+<Note>
+  RetroTV transmits images only. Audio continues to play through your computer.
+
+  中文：RetroTV 只传输图像，声音仍由电脑播放。
+</Note>
 
 ---
 
-# How it works
+## How it works
 
 RetroTV has two parts:
 
-- MeowKit receives and displays the images.
-- ScreenShotSender captures part of your Windows desktop and sends it to MeowKit. Both devices must be connected to the same local network.
+- **MeowKit** receives and displays the image stream.
+- **ScreenShotSender** captures a selected area of your Windows desktop and sends it to MeowKit.
+
+Both devices must be able to communicate on the same local network. Image quality and frame rate depend on your Wi-Fi connection, computer performance, capture size, and **Quality** setting.
+
+中文：RetroTV 由两部分组成：
+
+- **MeowKit** 接收并显示图像。
+- **ScreenShotSender** 截取 Windows 桌面的指定区域，并将图像发送到 MeowKit。
+
+两台设备必须位于可互相通信的同一局域网中。画质和帧率取决于 Wi-Fi 连接、电脑性能、截取区域大小和 **Quality** 设置。
+
+---
+
+## Before you start
+
+Prepare the following:
+
+- A Windows computer
+- MeowKit with RetroTV installed
+- A local network with 2.4 GHz Wi-Fi
+- [ScreenShotSender](https://github.com/lovyan03/ESP32_ScreenShotReceiver)
+
+MeowKit connects through 2.4 GHz Wi-Fi. Your computer may use Wi-Fi or Ethernet, as long as it is on the same local network.
+
+中文：开始前，请准备：
+
+- 一台 Windows 电脑
+- 已安装 RetroTV 的 MeowKit
+- 支持 2.4 GHz Wi-Fi 的本地网络
+- [ScreenShotSender](https://github.com/lovyan03/ESP32_ScreenShotReceiver)
+
+MeowKit 使用 2.4 GHz Wi-Fi。电脑可以使用 Wi-Fi 或以太网连接，但必须与 MeowKit 位于同一局域网。
 
 <Warning>
-  **Note**
+  Download ScreenShotSender only from the upstream open-source repository. Do not disable Windows Defender or Real-time Protection to run an unverified file. If needed, review and build the included C# source code yourself.
 
-  RetroTV streams images only. It does not transmit audio.
-
-  Frame rate and image quality depend on your Wi-Fi connection, computer performance, selected capture size, and JPEG Quality setting.
+  中文：请仅从上游开源仓库下载 ScreenShotSender。不要为了运行未经确认的文件而关闭 Windows Defender 或实时保护；如有疑虑，请检查并自行编译其中的 C# 源代码。
 </Warning>
 
 ---
 
-# What you need
-
-Before you begin, prepare:
-
-- A Windows computer
-- A local Wi-Fi network
-- ScreenShotSender（[https://github.com/lovyan03/ESP32_ScreenShotReceiver](https://github.com/lovyan03/ESP32_ScreenShotReceiver)）
-- MeowKit and the computer connected to the same network MeowKit uses 2.4 GHz Wi-Fi. Your computer may use Wi-Fi or Ethernet, provided it is on the same local network and can communicate with MeowKit.
-
----
-
-# Set up RetroTV
-
-/
+## Start streaming
 
 <Steps>
-  <Step title="**Connect to Wi-Fi.**">
-    Complete the Wi-Fi setup in MeowKit **Settings**. Make sure MeowKit and your computer are connected to the same local network.
+  <Step title="Connect MeowKit to Wi-Fi">
+    Complete the Wi-Fi setup in [Settings](/settings#wlan-setup). Connect MeowKit and your computer to the same local network.
+
+    中文：在 [Settings](/settings#wlan-setup) 中完成 Wi-Fi 设置，并将 MeowKit 与电脑连接到同一局域网。
   </Step>
-  <Step title="**Open RetroTV.**">
-    Go to **Applications → RetroTV**. Once connected, MeowKit displays its IP address, such as `10.0.1.135`.
+  <Step title="Open RetroTV">
+    On MeowKit, go to **Apps → RetroTV**. When the network connection is ready, the app displays an IP address such as `10.0.1.135`.
 
-    ![Displaying Its IP Address](/images/displaying-its-IP-address.png "Displaying Its IP Address")
+    Keep RetroTV open.
 
-    Keep this screen open.
+    中文：在 MeowKit 上打开 **Apps → RetroTV**。网络连接成功后，应用会显示 IP 地址，例如 `10.0.1.135`。请保持 RetroTV 运行。
+
+    ![IP address displayed in the MeowKit RetroTV app](/images/displaying-its-IP-address.png "RetroTV IP address")
   </Step>
-  <Step title="**Download ScreenShotSender.**">
-    Download the Windows sender from the [upstream open-source repository](https://github.com/lovyan03/ESP32_ScreenShotReceiver).
+  <Step title="Download ScreenShotSender">
+    Download the Windows sender from the [ESP32 ScreenShotReceiver repository](https://github.com/lovyan03/ESP32_ScreenShotReceiver).
 
-    > **Security:** Do not disable Windows Defender or Real-time Protection. Download the application only from the official upstream repository. If you have concerns, review and build the included C# source code.
+    中文：从 [ESP32 ScreenShotReceiver 仓库](https://github.com/lovyan03/ESP32_ScreenShotReceiver)下载 Windows 端程序。
   </Step>
-  <Step title="**Run ScreenShotSender.**">
-    Run `ScreenShotSender.exe`.
+  <Step title="Run ScreenShotSender">
+    Open `ScreenShotSender.exe`. If Windows Firewall asks for permission, allow access only on your trusted **Private network**.
 
-    If Windows Firewall asks for permission, allow access only on your trusted **Private network**.
-
-    **[Image: ScreenShotSender main window]**
+    中文：运行 `ScreenShotSender.exe`。如果 Windows 防火墙请求权限，请仅允许其访问你信任的**专用网络**。
   </Step>
-  <Step title="**Configure the display.**">
-    Enter the IP address shown on MeowKit, then set:
+  <Step title="Enter the display settings">
+    Enter the IP address shown on MeowKit, then use these values:
 
-    - Width: 320
-    - Height: 240
-    - Quality: 60
-    - Col: 1
-    - Row: 1 [Image: IP address and display settings]
+    | Setting | Value |
+    | --- | --: |
+    | Width | `320` |
+    | Height | `240` |
+    | Quality | `60` |
+    | Col | `1` |
+    | Row | `1` |
+
+    中文：输入 MeowKit 显示的 IP 地址，然后使用表格中的参数。
   </Step>
-  <Step title="**Select the display area.**">
-    Click **ShowBox**, then move or resize the capture frame. Everything inside the frame will be sent to MeowKit.
+  <Step title="Select the capture area">
+    Click **ShowBox**, then move or resize the capture frame. Everything inside the frame will be streamed to MeowKit.
 
-    For the best fit, keep the capture area close to a **4:3** aspect ratio.
+    Keep the frame close to a **4:3** aspect ratio for the best fit.
+
+    中文：点击 **ShowBox**，然后移动或调整截取框。框内的内容会发送到 MeowKit。为获得更好的显示效果，请尽量保持 **4:3** 的画面比例。
   </Step>
-  <Step title="**Start streaming.**">
-    Click **Connect**. When the button changes to **Disconnect**, your computer screen appears on MeowKit.
+  <Step title="Start the stream">
+    Click **Connect**. When the button changes to **Disconnect**, the selected area appears on MeowKit.
 
-    When finished, click **Disconnect**, then press and hold MeowKit’s **B button for 2 seconds** to exit RetroTV.
+    To stop, click **Disconnect**. To exit RetroTV, press and hold **B** on MeowKit for 2 seconds.
+
+    中文：点击 **Connect**。按钮变为 **Disconnect** 后，截取区域会显示在 MeowKit 上。结束时点击 **Disconnect**；长按 MeowKit 的 **B** 键 2 秒可退出 RetroTV。
   </Step>
 </Steps>
 
@@ -101,174 +134,80 @@ Before you begin, prepare:
 
 ## Troubleshooting
 
-Having trouble connecting MeowKit to RetroTV? Start with the issue that best matches what you're seeing.
-
 <AccordionGroup>
   <Accordion title="MeowKit stays on “Connect to WiFi...”">
-    This usually means MeowKit cannot establish a Wi-Fi connection.
+    Check that:
 
-    Check the following:
-
-    - Wi-Fi has been configured in **MeowKit Settings**.
-    - The Wi-Fi name (SSID) and password are correct.
-    - Your network supports **2.4 GHz Wi-Fi**.
+    - Wi-Fi is configured in **Settings**.
+    - The network name and password are correct.
+    - The network supports 2.4 GHz Wi-Fi.
     - MeowKit is within range of the router.
 
-    <Steps>
-      <Step title="Open Wi-Fi Settings">
-        Return to **Settings** on MeowKit and check your Wi-Fi configuration.
-      </Step>
-      <Step title="Reconnect to Wi-Fi">
-        Reconnect MeowKit to your Wi-Fi network and wait until the connection is established.
-      </Step>
-      <Step title="Open RetroTV">
-        Launch **RetroTV** again after MeowKit has successfully connected to Wi-Fi.
-      </Step>
-    </Steps>
+    Return to **Settings**, reconnect to Wi-Fi, then open RetroTV again.
+
+    中文：确认已在 **Settings** 中配置 Wi-Fi，网络名称和密码正确，网络支持 2.4 GHz，并且 MeowKit 位于路由器信号范围内。重新连接 Wi-Fi 后，再次打开 RetroTV。
   </Accordion>
 
   <Accordion title="ScreenShotSender cannot connect">
-    If ScreenShotSender cannot connect to MeowKit, check the following:
+    Confirm that:
 
-    - The IP address exactly matches the address displayed by MeowKit.
-    - MeowKit and your computer are connected to the **same local network**.
-    - **RetroTV is still open** on MeowKit.
-    - Windows Firewall allows ScreenShotSender to communicate on the current **Private network**.
-    - Your router does not have **Client Isolation** or **AP Isolation** enabled.
+    - The IP address matches the address displayed by MeowKit.
+    - MeowKit and the computer are on the same local network.
+    - RetroTV is still open on MeowKit.
+    - Windows Firewall allows ScreenShotSender on the current **Private network**.
+    - Client isolation or AP isolation is disabled on the router.
+    - Local TCP port `63333` is not blocked.
 
-    <Note>
-      Guest Wi-Fi networks often prevent connected devices from communicating with each other.
+    Guest networks often prevent devices from communicating. Use a normal trusted network instead.
 
-      For the best results, connect both MeowKit and your computer to a normal trusted network instead of a guest network.
-    </Note>
-
-    ### Check the TCP port
-
-    RetroTV uses a local TCP connection on port `63333`.
-
-    Make sure your firewall or network configuration does not block this port.
+    中文：确认 IP 地址与 MeowKit 显示的一致，两台设备位于同一局域网，RetroTV 仍保持运行，Windows 防火墙允许 ScreenShotSender 访问当前专用网络，路由器未开启客户端隔离或 AP 隔离，并且本地 TCP 端口 `63333` 未被阻止。访客网络通常会阻止设备之间通信，请改用普通的可信网络。
   </Accordion>
 
   <Accordion title="The IP address has changed">
-    MeowKit's IP address may change when:
+    The address may change after MeowKit reconnects, the router restarts, or you move to another network.
 
-    - MeowKit is restarted.
-    - MeowKit reconnects to Wi-Fi.
-    - The router is restarted.
-    - MeowKit is connected to a different network.
+    Open RetroTV again, copy the new address into ScreenShotSender, then reconnect.
 
-    <Steps>
-      <Step title="Open RetroTV">
-        Launch RetroTV on MeowKit and check the IP address displayed by the application.
-      </Step>
-      <Step title="Update ScreenShotSender">
-        Enter the newly displayed IP address in ScreenShotSender.
-      </Step>
-      <Step title="Reconnect">
-        Disconnect and reconnect ScreenShotSender using the updated address.
-      </Step>
-    </Steps>
+    中文：MeowKit 重新联网、路由器重启或切换网络后，IP 地址可能发生变化。重新打开 RetroTV，将新的地址输入 ScreenShotSender，然后再次连接。
   </Accordion>
 
-  <Accordion title="The image is stretched">
-    Make sure ScreenShotSender is configured with the correct output resolution:
+  <Accordion title="The image is stretched or cropped">
+    Set **Width** to `320` and **Height** to `240`. Adjust the capture frame so that important content stays inside it, and keep the frame close to a **4:3** aspect ratio.
 
-    | Setting | Value |
-    | --- | --- |
-    | Width | `320` |
-    | Height | `240` |
-    | Aspect Ratio | `4:3` |
-
-    For the best results, select a capture area with a **4:3 aspect ratio**.
+    中文：将 **Width** 设置为 `320`，将 **Height** 设置为 `240`。调整截取框，使重要内容位于框内，并尽量保持 **4:3** 的画面比例。
   </Accordion>
 
   <Accordion title="The image freezes or updates slowly">
-    If the image is laggy, freezes, or updates slowly, try these steps in order:
+    Try these changes in order:
 
-    <Steps>
-      <Step title="Reduce image quality">
-        Lower the **Quality** setting in ScreenShotSender.
-      </Step>
-      <Step title="Reduce the capture area">
-        Select a smaller area of your Windows screen.
-      </Step>
-      <Step title="Improve the Wi-Fi connection">
-        Move MeowKit closer to the router.
-      </Step>
-      <Step title="Reduce network activity">
-        Pause other downloads, streaming, or network-intensive activity.
-      </Step>
-      <Step title="Reconnect">
-        Click **Disconnect** in ScreenShotSender and then connect again.
-      </Step>
-    </Steps>
-  </Accordion>
+    1. Reduce **Quality**.
+    2. Select a smaller capture area.
+    3. Move MeowKit closer to the router.
+    4. Pause other network-intensive activity.
+    5. Click **Disconnect**, then reconnect.
 
-  <Accordion title="The picture is cropped">
-    If part of the image is missing, adjust the capture frame in ScreenShotSender.
-
-    <Note>
-      For the best results, keep the capture area close to a **4:3 aspect ratio**.
-    </Note>
-
-    Make sure all important content is inside the selected capture area before starting the stream.
+    中文：依次尝试降低 **Quality**、缩小截取区域、让 MeowKit 靠近路由器、暂停其他占用网络的任务，然后断开并重新连接。
   </Accordion>
 
   <Accordion title="No audio plays from MeowKit">
-    This is expected behavior.
+    This is expected. RetroTV sends JPEG images only. Audio remains on the Windows computer.
 
-    RetroTV sends **JPEG images only** from the Windows computer to MeowKit.
-
-    Audio is **not transmitted** to MeowKit and continues to play through the Windows computer's normal audio output.
-
-    <Info>
-      RetroTV is designed for screen streaming, not audio streaming.
-    </Info>
+    中文：这是正常现象。RetroTV 只发送 JPEG 图像，声音仍由 Windows 电脑播放。
   </Accordion>
 
   <Accordion title="Windows displays a security warning">
-    Do **not** disable Windows Antivirus or Real-time Protection just to run ScreenShotSender.
+    Do not disable antivirus protection or Real-time Protection.
 
-    If Windows displays a security warning:
+    Confirm that ScreenShotSender came from the official upstream repository. If you cannot verify the executable, do not run it. Review and build the included C# source code instead.
 
-    <Steps>
-      <Step title="Verify the source">
-        Confirm that ScreenShotSender came from the official upstream repository.
-      </Step>
-      <Step title="Do not run untrusted executables">
-        If you cannot verify or trust the executable, do not run it.
-      </Step>
-      <Step title="Build from source">
-        Review the included C# source code and build the application yourself if you need to verify what is being executed.
-      </Step>
-    </Steps>
-
-    <Warning>
-      Never disable antivirus or Windows Real-time Protection simply to bypass a security warning.
-    </Warning>
+    中文：不要关闭防病毒保护或实时保护。确认 ScreenShotSender 来自官方上游仓库；如果无法确认可执行文件是否可信，请不要运行，并改为检查和自行编译其中的 C# 源代码。
   </Accordion>
 </AccordionGroup>
-
-## Still having trouble?
-
-If none of the solutions above work, check the following:
-
-- MeowKit is connected to a **2.4 GHz Wi-Fi network**.
-- MeowKit and the Windows computer are on the **same local network**.
-- RetroTV is currently open on MeowKit.
-- The IP address in ScreenShotSender matches the current IP shown by MeowKit.
-- Windows Firewall allows ScreenShotSender on the current Private network.
-- TCP port `63333` is not blocked.
-- Your router does not use Client Isolation or AP Isolation.
 
 ---
 
 ## Source and license
 
-RetroTV is based on the open-source ESP32 ScreenShotReceiver project by lovyan03:
+RetroTV is based on the open-source [ESP32 ScreenShotReceiver](https://github.com/lovyan03/ESP32_ScreenShotReceiver) project by lovyan03. The original project streams JPEG images from a Windows computer to an ESP32 receiver over TCP and is released under the MIT License.
 
-[github.com/lovyan03/ESP32_ScreenShotReceiver](https://github.com/lovyan03/ESP32_ScreenShotReceiver)
-
-The original project sends JPEG images from a Windows computer to an ESP32 receiver over TCP and is released under the MIT License.
-
----
+中文：RetroTV 基于 lovyan03 的开源项目 [ESP32 ScreenShotReceiver](https://github.com/lovyan03/ESP32_ScreenShotReceiver)。该项目通过 TCP 将 Windows 电脑生成的 JPEG 图像发送到 ESP32 接收端，并采用 MIT License 发布。
