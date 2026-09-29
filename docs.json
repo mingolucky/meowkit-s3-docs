@@ -32,7 +32,8 @@
         "group": "Desktop Gadgets",
         "pages": [
           "retro-tv",
-          "vu-meter"
+          "vu-meter",
+          "pc-monitor"
         ]
       }
     ]
