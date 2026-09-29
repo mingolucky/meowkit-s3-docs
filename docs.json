@@ -35,6 +35,13 @@
           "vu-meter",
           "pc-monitor"
         ]
+      },
+      {
+        "group": "Hacker Protocol",
+        "pages": [
+          "ble-spam",
+          "bad-usb"
+        ]
       }
     ]
   },
