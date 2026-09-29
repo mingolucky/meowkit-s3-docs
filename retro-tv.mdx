@@ -34,6 +34,8 @@ Both devices must be able to communicate on the same local network. Image qualit
 
 ---
 
+# Before you start
+
 ## Before you start
 
 Prepare the following:
@@ -42,6 +44,10 @@ Prepare the following:
 - MeowKit with RetroTV installed
 - A local network with 2.4 GHz Wi-Fi
 - [ScreenShotSender](https://github.com/lovyan03/ESP32_ScreenShotReceiver)
+
+- MeowKit and the computer connected to the same network
+
+MeowKit uses 2.4 GHz Wi-Fi. Your computer may use Wi-Fi or Ethernet, provided it is on the same local network and can communicate with MeowKit.
 
 MeowKit connects through 2.4 GHz Wi-Fi. Your computer may use Wi-Fi or Ethernet, as long as it is on the same local network.
 
@@ -119,10 +125,6 @@ MeowKit connects through 2.4 GHz Wi-Fi. Your computer may use Wi-Fi or Ethernet,
     - RetroTV is still open on MeowKit.
     - Windows Firewall allows ScreenShotSender on the current Private network.
     - Your router is not using client isolation or AP isolation.
-
-    Guest networks often prevent connected devices from communicating. Use a normal trusted network instead.
-
-    RetroTV uses a local TCP connection on port `63333`. Confirm that your firewall or network settings do not block this port.
   </Accordion>
 
   <Accordion title="The IP address has changed">
