@@ -31,7 +31,8 @@
       {
         "group": "Desktop Gadgets",
         "pages": [
-          "retro-tv"
+          "retro-tv",
+          "vu-meter"
         ]
       }
     ]
