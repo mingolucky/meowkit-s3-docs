@@ -1,3 +1,62 @@
 ---
 title: "BLE Spam"
 ---
+
+A protocol research and security testing tool based on Bluetooth Low Energy advertising (BLE Advertising). Following advertising frame formats published by Apple, Google, Samsung, Microsoft, and other vendors, or reverse-engineered by researchers, it continuously transmits spoofed device-discovery frames at up to +21 dBm with a 20 ms hardware advertising interval. When nearby iPhones, Android phones, Windows 11 laptops, or Galaxy devices are scanning, numerous virtual devices may appear in their Bluetooth lists, or system-level prompts such as “Nearby Pairing,” “Swift Pair,” and “Fast Pair” may appear.
+
+# Intended audience
+
+This app is intended for Bluetooth protocol developers, embedded security researchers, and CTF instructors. It can be used to:
+
+- Examine how target devices handle anomalous or high-volume BLE advertisements;
+- Reproduce and study the conditions that trigger pairing prompts in publicly known protocols such as Apple Continuity, Google Fast Pair, Microsoft Swift Pair, and Samsung EasySetup;
+- Demonstrate that Bluetooth advertisements can be spoofed in IoT environments.
+
+# Basic operation
+
+1. Open **Hacker Protocol → BLE Spam**.
+2. Use **Up / Down** to select a mode, then press **A** to open the status page. The app is still idle at this point.
+3. Press **A** again to start broadcasting. The title bar displays **ACTIVE** while broadcasting.
+4. On the status page, press **A** to stop or restart broadcasting. Press **B** to stop and return to the mode list; press and hold **B** to exit the app.
+
+On the status page, **INT** indicates how often the app updates the test advertisement content, while **PKT** indicates the number of advertisements submitted by the app. Neither value represents the number of advertisements actually detected by a receiving device. Use **Up / Down** to adjust the displayed update interval.
+
+## What do the 11 modes mean?
+
+The following names correspond to the mode list in the current MeowKit app07. These descriptions explain their purpose and do not promise compatibility with every device model.
+
+| **Mode** | **How it works and possible effects** |
+| :-: | :-: |
+| **iOS 17 Lockup Crash** | A historical mode related to Bluetooth handling issues in early iOS 17 versions, intended to cause a device to freeze or restart. This is denial-of-service behavior, not an ordinary pairing prompt. The name does not prove that it works on current iOS versions. |
+| **Apple Action Modal** | Simulates advertisements related to Apple nearby interactions and may cause compatible systems to show an action prompt. A prompt does not mean the action has been completed. |
+| **Apple Device Popup** | Simulates Apple accessory-discovery information and may show a device connection card. The name or icon on the card does not prove that a real accessory is present. |
+| **Android Device Connect** | Simulates Fast Pair-related discovery information and may produce a nearby-accessory prompt. Actual behavior depends on the system and related services. |
+| **Samsung Buds Popup** | Simulates Samsung earbuds-discovery information. Recognition depends on the receiving device and Samsung's companion services. |
+| **Samsung Watch Pair** | Simulates Samsung watch-discovery information. Displaying a pairing option does not mean watch pairing has been completed. |
+| **Windows Device Found** | Simulates Swift Pair discovery information and may cause Windows to show a nearby-device notification. The notification itself does not establish a connection. |
+| **BT Settings Flood** | Uses simulated device advertisements to add entries to Bluetooth scanning lists, making real devices harder to find. It does not mean the app reads data from nearby devices. |
+| **LoveSpouse Play** | Involves start commands for certain devices using a compatible proprietary protocol and may directly change a device's state. This is different from merely displaying a notification. |
+| **LoveSpouse Stop** | Involves stop commands for corresponding devices. Stopping someone else's device is also device control. |
+| **The Kitchen Sink** | Combines multiple modes. It is not a new protocol and does not mean that every mode is transmitted simultaneously. Mixed results are usually harder to interpret. |
+
+In the current firmware, the menu names for LoveSpouse Play and Stop are **Vibrate 'em All** and **Denial of Pleasure**, respectively.
+
+The open-source project's description of iOS crashes includes version limitations and reports of fixes. Therefore, the official documentation should not say that this mode “supports all iPhones” or “always causes a restart.” [Bluetooth-LE-Spam project notes](https://github.com/simondankelmann/Bluetooth-LE-Spam/blob/main/README.md)
+
+⚠️ Safety statement: All data sent by this app consists of “spoofed frames” based on publicly known BLE advertising protocol structures. The app does not read, modify, or write any data on target devices, and its use does not constitute network intrusion. However, some modes, such as Apple Device Popup and iOS 17 Lockup Crash, may noticeably disrupt the target device's user experience. Use this feature for protocol research, security testing, and teaching demonstrations only in environments containing devices you own or are authorized in writing to test. Do not enable it in public places, medical facilities, airports, or conference venues. Users are responsible for any consequences of its use.
+
+### How to interpret test results
+
+A prompt only shows that the receiving device recognized or displayed an advertisement. It does not prove that pairing succeeded, that the accessory shown in the prompt is real, or that another software version will produce the same result.
+
+Treat **iOS 17 Lockup Crash**, **BT Settings Flood**, the two LoveSpouse modes, and **The Kitchen Sink** as potentially disruptive tests. Stop testing immediately if a device becomes unresponsive or an accessory behaves unexpectedly. Do not use these modes near people or devices outside the scope of your authorization.
+
+### Sources and limitations
+
+BLE Spam uses advertising behavior described in public materials or independent research. Some MeowKit modes are derived from the Momentum Apps BLE Spam project. A separate project, Bluetooth-LE-Spam, documents historical platform behavior and fixes in different versions; its results do not guarantee the same effects on MeowKit or current devices.
+
+- [MeowKit firmware implementation](https://github.com/mingolucky/meowkit-s3-firmware/blob/main/src/app/app_07/ble_spam.cpp)
+- [Momentum Apps](https://github.com/Next-Flip/Momentum-Apps)
+- [Bluetooth-LE-Spam project notes](https://github.com/simondankelmann/Bluetooth-LE-Spam/blob/main/README.md?utm_source=chatgpt.com)
+
+The upstream project explicitly documents version limitations for the iOS issue and lists starting and stopping compatible LoveSpouse devices as possible effects. Therefore, the absolute claims that the app “does not modify any data on target devices” and “cannot control devices” were removed from the original draft.
