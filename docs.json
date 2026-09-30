@@ -33,14 +33,17 @@
         "pages": [
           "retro-tv",
           "vu-meter",
-          "pc-monitor"
+          "pc-monitor",
+          "air-mouse"
         ]
       },
       {
         "group": "Hacker Protocol",
         "pages": [
           "ble-spam",
-          "bad-usb"
+          "wi-fi",
+          "bad-usb",
+          "infrared"
         ]
       }
     ]
