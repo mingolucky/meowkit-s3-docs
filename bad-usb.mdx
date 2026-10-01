@@ -1,3 +1,168 @@
 ---
-title: "BadUSB"
+title: "Bad USB"
+sidebarTitle: "BadUSB"
+description: "Automate keyboard input with MeowKit-S3 over USB or Bluetooth. Learn script setup, keyboard layouts, DuckyScript commands, execution controls, and troubleshooting."
+canonical: "https://docs.meowkit.cc/bad-usb"
+og:title: "Bad USB for MeowKit-S3 | USB & Bluetooth Keyboard Automation"
+og:url: "https://docs.meowkit.cc/bad-usb"
+keywords:
+  - "MeowKit-S3 BadUSB"
+  - "MeowKit Bad USB scripts"
+  - "USB keyboard automation"
+  - "Bluetooth keyboard automation"
+  - "MeowKit DuckyScript"
+  - "BadUSB keyboard layouts"
 ---
+
+Automate keyboard input with MeowKit. Load a text script, connect to your computer over USB or Bluetooth, and press **A** to run it.
+
+Use Bad USB for repetitive typing, keyboard shortcuts, and testing your own workflows. USB mode also supports scripted mouse input.
+
+> Only run scripts on devices you own or have permission to test. Read each script before running it—your computer receives its input just like input from a keyboard.
+
+## Add scripts
+
+Save your script as a plain-text `.txt` file and copy it to the SD card’s `/badusb/` folder.
+
+```text
+badusb/
+├── hello.txt
+└── layouts/
+    └── en-US.kl
+```
+
+Place scripts directly inside `/badusb/`. The current file browser does not scan subfolders.
+
+Insert the SD card before opening **Bad USB**. If you add files while the app is open, exit and reopen it to refresh the list.
+
+## Connect over USB
+
+1. Open **Bad USB** on MeowKit.
+2. In the script list, move the joystick left or right until **USB** is selected.
+3. Move up or down to select a script, then press **A** to open it.
+4. Connect MeowKit to your computer with a USB data cable.
+5. Wait for **READY**.
+6. Focus the window that should receive the input, then press **A** to run.
+
+Opening a script does not start it. You choose when to run it.
+
+## Connect over Bluetooth
+
+1. In the script list, move the joystick left or right to select **BLE**.
+2. Select a script and press **A**. MeowKit starts advertising.
+3. Open your computer’s Bluetooth settings and pair with **MeowKit BadUSB**.
+4. Wait for **READY** on MeowKit.
+5. Focus the target window, then press **A** to run.
+
+Bluetooth mode supports keyboard input. Mouse commands and custom `.kl` keyboard layouts are not applied in this mode.
+
+## Choose a keyboard layout
+
+For USB text input, match MeowKit’s keyboard layout to the active layout on your computer. A mismatch can produce incorrect letters or symbols.
+
+1. Copy the required `.kl` files to `/badusb/layouts/` on the SD card.
+2. Open a script.
+3. Move the joystick in any direction to open **Keyboard Layout**.
+4. Move up or down to select a layout.
+5. Press **A** to apply it, or **B** to return without changing it.
+
+The default layout name is **en-US**. Layout files are included in the source project under `src/app/app_08/assets/layouts/`.
+
+> Opening layout settings during execution stops the script. It does not pause it.
+
+## Run and stop
+
+On the script execution screen:
+
+| Control | Action |
+| --- | --- |
+| **A** when ready | Run the script |
+| **A** while running | Stop execution |
+| **A** after completion or an error | Run again from the beginning |
+| **B** | Stop execution and return to the script list |
+| Joystick, any direction | Open keyboard layout settings |
+| Hold **B** | Exit Bad USB |
+
+Stopping a script does not undo input already sent to your computer.
+
+The execution screen shows progress, line count, elapsed time, connection mode, and the current state:
+
+| State | Meaning |
+| --- | --- |
+| **WAIT** | Waiting for a connection |
+| **READY** | Ready to run |
+| **RUN** | Executing commands |
+| **DELAY** | Waiting for a scripted delay |
+| **TYPE** | Typing with a character delay |
+| **DONE** | Execution has ended |
+| **ERROR** | A script error stopped execution |
+
+**DONE** can also appear after you stop a script. It does not confirm that the intended action succeeded on the computer.
+
+## Write your first script
+
+Open a blank text editor on your computer. Save the following as `hello.txt` in `/badusb/`:
+
+```text
+REM Type a message in the active text editor
+DELAY 1500
+STRING Hello from MeowKit!
+ENTER
+```
+
+Select the script on MeowKit, focus the blank editor, and press **A**.
+
+The script waits 1.5 seconds, types the message, and presses Enter. It does not open an application for you.
+
+### Common commands
+
+Write command names in uppercase. Delays are measured in milliseconds.
+
+| Command | Action |
+| --- | --- |
+| `REM text` | Add a comment |
+| `DELAY 1000` | Wait one second |
+| `STRING text` | Type text |
+| `STRINGLN text` | Type text followed by Enter |
+| `ENTER` | Press Enter |
+| `CTRL a` | Send a keyboard shortcut |
+| `DEFAULT_DELAY 100` | Set the default delay between commands |
+| `DEFAULT_STRING_DELAY 20` | Set a delay between typed characters |
+| `REPEAT 3` | Repeat the previous repeatable command three more times |
+
+Start with short scripts and plain ASCII text. Test each step before combining it into a longer workflow.
+
+### Script compatibility
+
+MeowKit implements a selection of DuckyScript commands and extensions. Do not assume every Flipper Zero or Rubber Ducky script will work unchanged.
+
+In the current firmware:
+
+- `ID`, `BT_ID`, and `BLE_ID` directives are ignored.
+- Custom `.kl` layouts apply to USB text input only.
+- Mouse commands have no effect in BLE mode.
+- `WAIT_FOR_BUTTON_PRESS` enters **WAIT A**, but pressing **A** stops execution rather than continuing. Avoid this command in scripts that need to resume.
+
+## Troubleshooting
+
+### No scripts found
+
+Check that the SD card is readable and your files end in `.txt`. Place them directly in `/badusb/`, then reopen the app.
+
+### The screen stays on WAIT
+
+For USB, check the selected mode and use a data cable. For Bluetooth, open a script in BLE mode before searching for **MeowKit BadUSB** on your computer.
+
+### Characters are incorrect
+
+In USB mode, check that the selected keyboard layout matches your computer. In BLE mode, custom layout files are not used.
+
+Also check the computer’s active input language and Caps Lock state.
+
+### Input is missing or arrives too quickly
+
+Focus the correct window before running the script. Add `DELAY` between actions, or use `DEFAULT_STRING_DELAY` to slow down typing.
+
+### ERROR appears
+
+Review the script’s command names and parameters. Simplify it to a short test, then add commands back one at a time.
