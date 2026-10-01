@@ -1,3 +1,142 @@
 ---
 title: "Infrared"
+sidebarTitle: "Infrared"
+description: "Learn, save, and replay infrared signals with MeowKit-S3. Set up universal remote databases, manage IR files on your SD card, and troubleshoot remote controls."
+canonical: "https://docs.meowkit.cc/infrared"
+og:title: "Infrared for MeowKit-S3 | Learn & Save Remote Signals"
+og:url: "https://docs.meowkit.cc/infrared"
+keywords:
+  - "MeowKit-S3 infrared"
+  - "MeowKit IR remote"
+  - "infrared signal learning"
+  - "MeowKit universal remote"
+  - "MeowKit .ir files"
+  - "infrared remote troubleshooting"
 ---
+
+Keep your infrared controls in one place. MeowKit can learn a remote's signal, save it to the SD card, and send it again when you need it. Universal Remote lets you try commands from the infrared databases on your card.
+
+Point MeowKit's IR port toward the device you want to control. Infrared needs a clear path to the receiver; it does not pair over Bluetooth or Wi-Fi.
+
+> Use Infrared only with devices you own or have permission to control.
+
+## Get ready
+
+Insert an SD card before opening **Infrared**. Saved signals use the `/infrared/` folder. Universal databases belong in `/infrared/universal/`.
+
+For the supplied databases, copy the contents of the project's `sd files/infrared/universal/` folder to that location on your card. Keep your existing remote files when adding the databases.
+
+```text
+infrared/
+├── TV_POWER.ir
+├── LivingRoom/
+│   └── VOLUME_UP.ir
+└── universal/
+    ├── tv.ir
+    ├── ac.ir
+    ├── audio.ir
+    └── projector.ir
+```
+
+The main menu provides three options:
+
+- **Universal Remote** — try a command across the models in a database.
+- **Learn New Signal** — capture a button from your existing remote.
+- **Saved Remotes** — browse and send saved signals, or manage their files.
+
+Use the joystick to select an item and **A** to open it. Press and hold **B** to exit Infrared. Short-press actions follow the hints at the bottom of each screen.
+
+## Learn a signal
+
+1. Open **Learn New Signal**.
+2. Point the original remote at MeowKit's IR receiver.
+3. Briefly press the button you want to capture.
+4. Wait for **Signal Received**.
+
+MeowKit displays the decoded signal information, or raw timing information when the signal is not decoded.
+
+Before saving, point MeowKit at the target device and press **A** to test the captured signal. Move the joystick in any direction to retry learning. Press **B** to save.
+
+Learn each button separately. Capturing one button does not copy the entire remote.
+
+## Save a signal
+
+Choose where to keep it:
+
+- **Root folder** — save directly in `/infrared/`.
+- **Choose folder** — select an existing folder.
+- **New folder** — name a new folder under `/infrared/`.
+
+In **Choose folder**, press **A** to open a folder. Select `..` and press **A** to go up one level. Move the joystick right to use the folder you are currently inside—not the highlighted folder.
+
+Use the on-screen keyboard to enter a name. Move the joystick to a key and press **A** to select it. **DEL** removes the last character. Select **OK** and press **A** to confirm. Press **B** to go back.
+
+Use a short, recognizable name such as `TV_POWER` or `VOLUME_UP`. The name is used for both the saved signal and its `.ir` filename. A new folder is only created when you finish saving the signal.
+
+If the filename already exists, choose **Append signal**, **Choose another name**, or **Cancel save**. Appending adds another entry to the file; it does not replace the existing entries. Use a different name when you want a separate file.
+
+Wait for **Signal saved!** before removing the SD card.
+
+## Use a saved remote
+
+1. Open **Saved Remotes**.
+2. Select a folder or `.ir` file and press **A** to open it.
+3. Select the signal you want to send.
+4. Point MeowKit at the device and press **A**.
+
+Press **B** to return. In a folder, **B** moves up one level.
+
+### Delete a file or folder
+
+In the Saved Remotes browser, select an entry and move the joystick right. Press **A** to confirm deletion, or **B** to cancel.
+
+Only empty folders can be deleted. The `universal` database folder is hidden from this browser to keep it separate from your saved remotes.
+
+> Deletion cannot be undone in the app. Back up remote files you want to keep.
+
+## Use Universal Remote
+
+1. Open **Universal Remote**.
+2. Select a category and press **A**.
+3. Select an action, such as **POWER**, and press **A** to load its signals.
+4. Point MeowKit at the device, then press **A** again to start sending.
+
+MeowKit tries the matching signals in sequence. Keep it pointed at the receiver and stop when the device responds. The available categories and commands depend on the database files on your SD card; a category is not a guarantee of compatibility with every model.
+
+The transmission screen uses these controls:
+
+| State | A | B | Joystick up/down |
+| --- | --- | --- | --- |
+| Idle | Start sending | Return | Select a signal |
+| Running | Pause | Stop | — |
+| Paused | Send the selected signal once | Resume | Select a signal |
+
+To leave a paused transmission, press and hold **B** to exit the app. A short press of **B** resumes sending while paused.
+
+## Add remote files
+
+Copy `.ir` files into `/infrared/` or a subfolder, then open them through **Saved Remotes**. Keep universal databases in `/infrared/universal/`.
+
+MeowKit reads supported parsed signals and raw timing entries. It does not implement every Flipper Zero protocol or guarantee playback of every `.ir` file. Test an imported signal before relying on it.
+
+Newly saved decoded entries include `value` and `bits` fields so MeowKit can retain the captured code. Keep those fields when editing a file. Older or imported parsed entries without them use the existing fallback conversion and may not replay correctly for some protocols.
+
+## Troubleshooting
+
+### No signal is detected
+
+Check that the original remote uses infrared rather than Bluetooth or radio. Aim it directly at MeowKit's receiver, avoid strong direct light, and try a brief button press from a different distance.
+
+### A signal is sent, but nothing happens
+
+Check the direction and line of sight. Try learning the button again and test it before saving. The **SENT** message confirms a send action, not a response from the appliance.
+
+Some remotes, especially air conditioners, use long state messages or protocols that are not fully supported. Raw learned signals use a default 38 kHz carrier; MeowKit does not measure the original remote's carrier frequency.
+
+### No universal remotes appear
+
+Check that the database files are inside `/infrared/universal/` on the SD card, not just in the firmware source folder. Exit and reopen Infrared after adding files.
+
+### Saving fails
+
+Check that the SD card is readable and has free space. Use a shorter name or folder path, and avoid names ending in a dot. Keep a backup before troubleshooting the card.
