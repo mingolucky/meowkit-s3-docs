@@ -87,15 +87,48 @@ Stopping a script does not undo input already sent to your computer.
 
 The execution screen shows progress, line count, elapsed time, connection mode, and the current state:
 
-| State | Meaning |
-| --- | --- |
-| **WAIT** | Waiting for a connection |
-| **READY** | Ready to run |
-| **RUN** | Executing commands |
-| **DELAY** | Waiting for a scripted delay |
-| **TYPE** | Typing with a character delay |
-| **DONE** | Execution has ended |
-| **ERROR** | A script error stopped execution |
+<table>
+  <colgroup>
+    <col width="202" />
+    <col width="362" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>State</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**WAIT**</td>
+      <td>Waiting for a connection</td>
+    </tr>
+    <tr>
+      <td>**READY**</td>
+      <td>Ready to run</td>
+    </tr>
+    <tr>
+      <td>**RUN**</td>
+      <td>Executing commands</td>
+    </tr>
+    <tr>
+      <td>**DELAY**</td>
+      <td>Waiting for a scripted delay</td>
+    </tr>
+    <tr>
+      <td>**TYPE**</td>
+      <td>Typing with a character delay</td>
+    </tr>
+    <tr>
+      <td>**DONE**</td>
+      <td>Execution has ended</td>
+    </tr>
+    <tr>
+      <td>**ERROR**</td>
+      <td>A script error stopped execution</td>
+    </tr>
+  </tbody>
+</table>
 
 **DONE** can also appear after you stop a script. It does not confirm that the intended action succeeded on the computer.
 
@@ -118,17 +151,56 @@ The script waits 1.5 seconds, types the message, and presses Enter. It does not 
 
 Write command names in uppercase. Delays are measured in milliseconds.
 
-| Command | Action |
-| --- | --- |
-| `REM text` | Add a comment |
-| `DELAY 1000` | Wait one second |
-| `STRING text` | Type text |
-| `STRINGLN text` | Type text followed by Enter |
-| `ENTER` | Press Enter |
-| `CTRL a` | Send a keyboard shortcut |
-| `DEFAULT_DELAY 100` | Set the default delay between commands |
-| `DEFAULT_STRING_DELAY 20` | Set a delay between typed characters |
-| `REPEAT 3` | Repeat the previous repeatable command three more times |
+<table>
+  <colgroup>
+    <col width="203" />
+    <col width="409" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`REM text`</td>
+      <td>Add a comment</td>
+    </tr>
+    <tr>
+      <td>`DELAY 1000`</td>
+      <td>Wait one second</td>
+    </tr>
+    <tr>
+      <td>`STRING text`</td>
+      <td>Type text</td>
+    </tr>
+    <tr>
+      <td>`STRINGLN text`</td>
+      <td>Type text followed by Enter</td>
+    </tr>
+    <tr>
+      <td>`ENTER`</td>
+      <td>Press Enter</td>
+    </tr>
+    <tr>
+      <td>`CTRL a`</td>
+      <td>Send a keyboard shortcut</td>
+    </tr>
+    <tr>
+      <td>`DEFAULT_DELAY 100`</td>
+      <td>Set the default delay between commands</td>
+    </tr>
+    <tr>
+      <td>`DEFAULT_STRING_DELAY 20`</td>
+      <td>Set a delay between typed characters</td>
+    </tr>
+    <tr>
+      <td>`REPEAT 3`</td>
+      <td>Repeat the previous repeatable command three more times</td>
+    </tr>
+  </tbody>
+</table>
 
 Start with short scripts and plain ASCII text. Test each step before combining it into a longer workflow.
 
