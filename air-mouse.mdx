@@ -1,3 +1,83 @@
 ---
 title: "Air Mouse"
+sidebarTitle: "Air Mouse"
+description: "Use MeowKit-S3 as a Bluetooth air mouse. Learn pairing, motion control, clicking, scrolling, sensitivity settings, calibration, and troubleshooting."
+canonical: "https://docs.meowkit.cc/air-mouse"
+og:title: "Air Mouse for MeowKit-S3 | Bluetooth Mouse Guide"
+og:url: "https://docs.meowkit.cc/air-mouse"
+keywords:
+  - "MeowKit-S3 Air Mouse"
+  - "MeowKit Bluetooth mouse"
+  - "MeowKit AirMouse pairing"
+  - "air mouse calibration"
+  - "MeowKit motion control"
 ---
+
+Turn MeowKit into a Bluetooth mouse. Rotate the device to move the pointer, use the buttons to click, and scroll with the joystick or touchscreen.
+
+## Connect to your computer
+
+1. Open **Air Mouse** on MeowKit.
+2. Place MeowKit on a stable surface and keep it still during calibration.
+3. Open your computer’s Bluetooth settings and select **MeowKit AirMouse**.
+4. Wait for **CONNECTED** to appear on MeowKit.
+
+When **KEEP STILL** changes to **Calibrate**, motion control is ready. Pick up MeowKit and gently rotate it to move the pointer.
+
+## Click and scroll
+
+| Control | Action |
+| --- | --- |
+| Press and release **A** | Left-click |
+| Hold **A** while moving | Drag |
+| Press and release **B** briefly | Right-click |
+| Move the joystick up or down | Scroll |
+| Swipe vertically in **Touch Scroll** | Scroll |
+| Press and hold **B** | Exit Air Mouse |
+
+Pointer movement pauses while you use the touch scroll panel, helping you scroll without moving away from your target.
+
+## Adjust sensitivity
+
+Choose **Low**, **Normal**, or **High** to change how far the pointer moves when you rotate MeowKit.
+
+Move the joystick left or right to decrease or increase sensitivity. You can also tap **Speed** to cycle through the three levels.
+
+Your selection is saved automatically.
+
+## Calibrate motion
+
+Calibration helps keep the pointer steady when MeowKit is not moving. It runs each time you open Air Mouse.
+
+To recalibrate:
+
+1. Place MeowKit on a stable surface.
+2. Tap **Calibrate**.
+3. Keep it still until **KEEP STILL** changes back to **Calibrate**.
+
+If **TRY AGAIN** appears, leave MeowKit still and tap it to retry. Clicking and scrolling remain available while motion calibration is incomplete.
+
+## Troubleshooting
+
+### Paired, but not responding
+
+Check the status on MeowKit:
+
+- **WAITING** — waiting for a Bluetooth connection.
+- **PAIRING** — connected, but the mouse input channel is not ready.
+- **CONNECTED** — ready to send mouse input.
+- **BLE ERROR** — Bluetooth could not start correctly. Exit Air Mouse and reopen it.
+
+If the status stays at **PAIRING**, remove **MeowKit AirMouse** from your computer’s Bluetooth settings, then pair it again.
+
+### Buttons work, but the pointer does not move
+
+Check the calibration label. If it shows **KEEP STILL** or **TRY AGAIN**, complete calibration before using motion control.
+
+### The pointer moves while MeowKit is still
+
+Place MeowKit on a stable surface and tap **Calibrate**. Avoid touching or moving it until calibration finishes.
+
+### IMU ERROR appears
+
+The motion sensor is unavailable. Exit Air Mouse and reopen it. If the error remains, restart MeowKit.
