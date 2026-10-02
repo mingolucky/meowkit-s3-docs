@@ -11,17 +11,17 @@ og:title: "VU Meter for MeowKit-S3 | Sound Visualization"
 og:url: "https://docs.meowkit.cc/vu-meter"
 ---
 
-![Vu Meter](/images/vu-meter.png "Vu Meter")
+![Vu Meter Gif](/images/vu-meter-gif.gif "Vu Meter Gif")
 
-VU Meter turns MeowKit into a classic analog sound meter. Its built-in microphone listens to the surrounding sound, and the white needle responds in real time.
-
-No setup is required. Open the app and make some noise.
+It samples the microphone via I²S (44.1 kHz / 16-bit / stereo), computes the RMS level and applies exponential smoothing, then maps the result to the needle angle—showing the “here-and-now” loudness and punch accurately and continuously. From jazz brushwork and pop vocals to the swells of electronic music, you can read the nuance and emotion of the sound from this single needle.
 
 ---
 
 ## Open VU Meter
 
 Open **Apps → VU Meter**. When the dial appears, MeowKit begins listening through its built-in microphone.
+
+![Image](/images/image-4.png "Image")
 
 ## Read the meter
 
