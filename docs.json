@@ -42,8 +42,7 @@
         "pages": [
           "ble-spam",
           "wi-fi",
-          "bad-usb",
-          "infrared"
+          "bad-usb"
         ]
       }
     ]
