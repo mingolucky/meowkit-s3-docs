@@ -10,40 +10,12 @@
   },
 
   "navigation": {
-    "groups": [
+    "products": [
       {
-        "group": "Hardware",
-        "pages": [
-          "tech-specs",
-          "schematics"
-        ]
-      },
-      {
-        "group": "Getting started",
-        "pages": [
-          "first-start",
-          "firmware-update",
-          "main-interface",
-          "settings",
-          "transparent-shell-replacement"
-        ]
-      },
-      {
-        "group": "Desktop Gadgets",
-        "pages": [
-          "retro-tv",
-          "vu-meter",
-          "pc-monitor",
-          "air-mouse"
-        ]
-      },
-      {
-        "group": "Hacker Protocol",
-        "pages": [
-          "ble-spam",
-          "wifi-killer",
-          "bad-usb"
-        ]
+        "product": "MeowKit-S3",
+        "icon": "microchip",
+        "description": "Hardware, setup guides, and applications for MeowKit-S3.",
+        "href": "/meowkit-s3"
       }
     ]
   },
