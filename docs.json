@@ -14,6 +14,7 @@
       {
         "group": "Hardware",
         "pages": [
+          "hardware",
           "tech-specs",
           "schematics"
         ]
@@ -21,6 +22,7 @@
       {
         "group": "Getting started",
         "pages": [
+          "getting-started",
           "first-start",
           "firmware-update",
           "main-interface",
@@ -31,6 +33,7 @@
       {
         "group": "Desktop Gadgets",
         "pages": [
+          "desktop-gadgets",
           "retro-tv",
           "vu-meter",
           "pc-monitor",
@@ -40,6 +43,7 @@
       {
         "group": "Hacker Protocol",
         "pages": [
+          "hacker-protocol",
           "ble-spam",
           "wifi-killer",
           "bad-usb"
@@ -83,7 +87,7 @@
     }
   },
   "styling": {
-    "eyebrows": "section"
+    "eyebrows": "breadcrumbs"
   },
   "appearance": {
     "default": "light",
