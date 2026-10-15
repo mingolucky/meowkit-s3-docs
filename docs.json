@@ -58,14 +58,16 @@
       {
         "label": "Home",
         "href": "https://meowkit.cc"
+      },
+      {
+        "href": "https://meowkit.cc/collections/meowkit-s3",
+        "label": "Products"
+      },
+      {
+        "href": "https://meowkit.cc/pages/download",
+        "label": "Download"
       }
-    ],
-
-    "primary": {
-      "type": "button",
-      "href": "https://meowkit.cc/products/meowkit-s3-standard-edition",
-      "label": "Buy Now"
-    }
+    ]
   },
 
   "contextual": {
