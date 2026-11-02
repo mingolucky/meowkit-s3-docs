@@ -47,7 +47,16 @@
           "hacker-protocol",
           "ble-spam",
           "wifi-killer",
-          "bad-usb"
+          "bad-usb",
+          {
+            "group": "Infrared",
+            "icon": "satellite-dish",
+            "pages": [
+              "infrared",
+              "infrared/reading-infrared-signals",
+              "infrared/using-universal-remotes"
+            ]
+          }
         ]
       }
     ]
