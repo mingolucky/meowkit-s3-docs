@@ -8,9 +8,11 @@ related: false
 sidebarTitle: "MeowKit-S3 Documentation"
 ---
 
-<div className="mx-auto max-w-6xl px-6 py-12 sm:py-20">
+<div className="mx-auto max-w-6xl px-6 pb-12 pt-[168px] sm:pb-20 sm:pt-[200px] lg:pt-20">
   <div className="grid items-center gap-8 md:grid-cols-2">
-    <img src="/images/mk-s3.png" alt="MeowKit-S3 pocket-sized ESP32-S3 device" className="mx-auto w-full max-w-md object-contain" />
+    <div className="mx-auto w-full max-w-md">
+      <img src="/images/mk-s3.png" alt="MeowKit-S3 pocket-sized ESP32-S3 device" className="block h-auto w-full object-contain" />
+    </div>
 
     <div>
       <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">MeowKit-S3 Documentation</h1>
@@ -28,21 +30,21 @@ sidebarTitle: "MeowKit-S3 Documentation"
 
       <Card title="Hacker Protocol" href="/hacker-protocol" icon="terminal" arrow={true} className="transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:!bg-lime-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-500 motion-reduce:transform-none motion-reduce:transition-none" />
 
-      <Card title="Edge AI" icon="brain" disabled={true} arrow={false} className="relative min-h-[148px] cursor-not-allowed overflow-hidden !opacity-100 !bg-gray-50 dark:!bg-zinc-900">
+      <Card title="Edge AI" icon="brain" disabled={true} arrow={false} className="relative min-h-[148px] cursor-not-allowed overflow-hidden !opacity-100 !bg-gray-50 dark:!bg-zinc-900 [&>[data-component-part=card-content-container]]:!static">
         <span className="pointer-events-none absolute text-center" style={{ right: "-35px", bottom: "20px", width: "180px", transform: "rotate(-32deg)", backgroundColor: "#F5D547", color: "#171717", borderTop: "2px solid #171717", borderBottom: "2px solid #171717", padding: "4px 0", fontSize: "10px", fontWeight: 800, lineHeight: "14px", letterSpacing: "0.1em", boxShadow: "0 2px 5px rgba(0,0,0,0.12)" }}>COMING SOON</span>
       </Card>
 
-      <Card title="GPIO Expansion" icon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" strokeLinejoin="miter" role="img" aria-label="GPIO pin header and female sockets"><path d="M5.5 2v14m7-14v14m7-14v14m7-14v14" /><path d="M3.5 6.5h4v5h-4zm7 0h4v5h-4zm7 0h4v5h-4zm7 0h4v5h-4z" fill="currentColor" stroke="none" /><path d="M2 21h28v9H2z" /><path d="M4.25 24.25h2.5v2.5h-2.5zm7 0h2.5v2.5h-2.5zm7 0h2.5v2.5h-2.5zm7 0h2.5v2.5h-2.5z" fill="currentColor" stroke="none" /></svg>} disabled={true} arrow={false} className="relative min-h-[148px] cursor-not-allowed overflow-hidden !opacity-100 !bg-gray-50 dark:!bg-zinc-900">
+      <Card title="GPIO Expansion" icon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" strokeLinejoin="miter" role="img" aria-label="GPIO pin header and female sockets"><path d="M5.5 2v14m7-14v14m7-14v14m7-14v14" /><path d="M3.5 6.5h4v5h-4zm7 0h4v5h-4zm7 0h4v5h-4zm7 0h4v5h-4z" fill="currentColor" stroke="none" /><path d="M2 21h28v9H2z" /><path d="M4.25 24.25h2.5v2.5h-2.5zm7 0h2.5v2.5h-2.5zm7 0h2.5v2.5h-2.5zm7 0h2.5v2.5h-2.5z" fill="currentColor" stroke="none" /></svg>} disabled={true} arrow={false} className="relative min-h-[148px] cursor-not-allowed overflow-hidden !opacity-100 !bg-gray-50 dark:!bg-zinc-900 [&>[data-component-part=card-content-container]]:!static">
         <span className="pointer-events-none absolute text-center" style={{ right: "-35px", bottom: "20px", width: "180px", transform: "rotate(-32deg)", backgroundColor: "#F5D547", color: "#171717", borderTop: "2px solid #171717", borderBottom: "2px solid #171717", padding: "4px 0", fontSize: "10px", fontWeight: 800, lineHeight: "14px", letterSpacing: "0.1em", boxShadow: "0 2px 5px rgba(0,0,0,0.12)" }}>COMING SOON</span>
       </Card>
 
-      <Card title="Make it yours" icon="code" disabled={true} arrow={false} className="relative min-h-[148px] cursor-not-allowed overflow-hidden !opacity-100 !bg-gray-50 dark:!bg-zinc-900">
+      <Card title="Make it yours" icon="code" disabled={true} arrow={false} className="relative min-h-[148px] cursor-not-allowed overflow-hidden !opacity-100 !bg-gray-50 dark:!bg-zinc-900 [&>[data-component-part=card-content-container]]:!static">
         <p className="mt-2 pb-10 text-sm text-gray-500 dark:text-zinc-400">Install community apps or build your own.</p>
 
         <span className="pointer-events-none absolute text-center" style={{ right: "-35px", bottom: "20px", width: "180px", transform: "rotate(-32deg)", backgroundColor: "#F5D547", color: "#171717", borderTop: "2px solid #171717", borderBottom: "2px solid #171717", padding: "4px 0", fontSize: "10px", fontWeight: 800, lineHeight: "14px", letterSpacing: "0.1em", boxShadow: "0 2px 5px rgba(0,0,0,0.12)" }}>COMING SOON</span>
       </Card>
 
-      <Card title="MeowKit-S3 Simulator" icon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 30" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="MeowKit-S3 device"><path d="M5 2h22a3 3 0 0 1 3 3v17.2a2 2 0 0 1-.6 1.4l-4 4a2 2 0 0 1-1.4.6H16l-4.8-4.3a2 2 0 0 0-1.3-.5H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z" /><path d="M4 23.3v2.9a2 2 0 0 0 2 2h9.8M6.3 25.4h3l1.7 1.2H6.3Z" /><rect x="9" y="6" width="16.7" height="13.1" rx=".4" /><path d="M5.5 7v10M27.6 6.3l1 1m-1 1.5 1 1m-1 1.5 1 1m-1 1.5 1 1" /><circle cx="7.7" cy="22" r="1.15" /><path d="M13.1 22h2.7l2 2-1 1h-2.7l-2-2ZM20 21.1h2.7l2 2-1 1H21l-2-2Z" /></svg>} disabled={true} arrow={false} className="relative min-h-[148px] cursor-not-allowed overflow-hidden !opacity-100 !bg-gray-50 dark:!bg-zinc-900">
+      <Card title="MeowKit-S3 Simulator" icon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 30" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="MeowKit-S3 device"><path d="M5 2h22a3 3 0 0 1 3 3v17.2a2 2 0 0 1-.6 1.4l-4 4a2 2 0 0 1-1.4.6H16l-4.8-4.3a2 2 0 0 0-1.3-.5H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z" /><path d="M4 23.3v2.9a2 2 0 0 0 2 2h9.8M6.3 25.4h3l1.7 1.2H6.3Z" /><rect x="9" y="6" width="16.7" height="13.1" rx=".4" /><path d="M5.5 7v10M27.6 6.3l1 1m-1 1.5 1 1m-1 1.5 1 1m-1 1.5 1 1" /><circle cx="7.7" cy="22" r="1.15" /><path d="M13.1 22h2.7l2 2-1 1h-2.7l-2-2ZM20 21.1h2.7l2 2-1 1H21l-2-2Z" /></svg>} disabled={true} arrow={false} className="relative min-h-[148px] cursor-not-allowed overflow-hidden !opacity-100 !bg-gray-50 dark:!bg-zinc-900 [&>[data-component-part=card-content-container]]:!static">
         <p className="mt-2 pb-10 text-sm text-gray-500 dark:text-zinc-400">Run and test your apps on a virtual MeowKit-S3.</p>
 
         <span className="pointer-events-none absolute text-center" style={{ right: "-35px", bottom: "20px", width: "180px", transform: "rotate(-32deg)", backgroundColor: "#F5D547", color: "#171717", borderTop: "2px solid #171717", borderBottom: "2px solid #171717", padding: "4px 0", fontSize: "10px", fontWeight: 800, lineHeight: "14px", letterSpacing: "0.1em", boxShadow: "0 2px 5px rgba(0,0,0,0.12)" }}>COMING SOON</span>
