@@ -19,10 +19,14 @@ MeowKit can act as a [BadUSB device](https://web.archive.org/web/20220816200129/
 
 # MeowKit scripting language
 
-To use MeowKit as a BadUSB device, first create a `.txt` script in a plain-text editor. MeowKit supports common commands from the classic Rubber Ducky Scripting Language 1.0, along with extensions for character input delays, mouse actions, and media controls. Supported commands and features vary between USB and BLE modes.
+Create a `.txt` script in a plain-text editor. MeowKit supports common commands from classic DuckyScript 1.0, with additional commands for character input delays, mouse actions, and media controls. Save your scripts to `/badusb/scripts/` on the SD card.
 
 <Warning>
-  For details on supported commands and examples, see the **MeowKit BadUSB scripting guide**.
+  For syntax and command examples, see the [Flipper Zero BadUSB scripting reference](https://github.com/flipperdevices/flipperzero-firmware/blob/dev/documentation/file_formats/BadUsbScriptFormat.md). When adapting scripts for MeowKit, note these differences:
+
+  - USB and BLE both support keyboard, mouse, media controls, and `.kl` keyboard layouts.
+  - `ID`, `BLE_ID`, and `BT_ID` commands are ignored.
+  - Text input currently supports ASCII characters only. Full DuckyScript 3.0 support is not available.
 </Warning>
 
 ---
@@ -33,6 +37,8 @@ After creating your `.txt` script, connect MeowKit to your computer with a USB d
 
 Once the transfer is complete, safely eject the drive from your computer. On MeowKit, press **A (Eject)** to end USB MSC mode, then **B (Back)** to return. Reopen **BadUSB** to refresh the script list.
 
+![Uploading New Payloads](/images/uploading-new-payloads.png "Uploading New Payloads")
+
 <Danger>
   Copying a file with an existing name may replace the original. Back up scripts you want to keep before confirming replacement.
 </Danger>
@@ -41,24 +47,22 @@ Once the transfer is complete, safely eject the drive from your computer. On Meo
 
 # Using MeowKit as a BadUSB device
 
-### Via USB connection
-
-To use MeowKit as a BadUSB device over USB, follow these steps:
+## Via USB connection
 
 <Steps>
-  <Step title="If **USB MSC** is active, safely eject the drive from your computer, then end USB MSC mode on MeowKit.">
+  <Step title="If **USB MSC** is active, safely eject the drive on your computer, then exit USB MSC mode on MeowKit.">
   </Step>
-  <Step title="On MeowKit, go to **Applications → BadUSB**.">
+  <Step title="On MeowKit, open **Applications → BadUSB**.">
   </Step>
-  <Step title="In the script list, move the joystick left or right to select **USB** mode.">
+  <Step title="In the script list, move the joystick left or right to select **USB**.">
   </Step>
-  <Step title="Move the joystick up or down to select a script, then press **A (Enter)** to open its execution page.">
+  <Step title="Move the joystick up or down to select a script. Press **A (Enter)** to open its execution page.">
   </Step>
-  <Step title="If needed, move the joystick in any direction to open **Config**, select a keyboard layout matching your computer, and press **A (Apply)**. The default layout is **en-US**; its file should be stored in `/badusb/layouts/`.">
+  <Step title="If needed, move the joystick up or down to open **Layout**. Select the keyboard layout used on your computer, then press **A (Apply)**. The default is **en-US**.">
   </Step>
-  <Step title="Connect MeowKit to your computer with a USB data cable and wait for **READY / Connected**.">
+  <Step title="Connect MeowKit to your computer with a USB data cable. Wait for **Ready** on MeowKit.">
   </Step>
-  <Step title="Open the target application on your computer, make sure its input area has focus, then press **A (Run)** on MeowKit to execute the script.">
+  <Step title="Open the target application on your computer and select its input area. Press **A (Run)** on MeowKit to start the script.">
   </Step>
 </Steps>
 
@@ -66,31 +70,27 @@ To use MeowKit as a BadUSB device over USB, follow these steps:
   During execution, press **A** to stop, **B** to stop and return to the script list, or hold **B** to exit the app. Running again starts from the first line.
 </Warning>
 
-### Via BLE connection
-
-To use MeowKit as a BadUSB device over Bluetooth Low Energy (BLE), follow these steps:
+## Via BLE connection
 
 <Steps>
-  <Step title="On MeowKit, go to **Settings → Bluetooth** and enable Bluetooth.">
+  <Step title="On MeowKit, open **Settings → Bluetooth** and turn Bluetooth on.">
   </Step>
   <Step title="Open **Applications → BadUSB**.">
   </Step>
-  <Step title="In the script list, move the joystick left or right to select **BLE** mode.">
+  <Step title="In the script list, move the joystick left or right to select **BLE**.">
   </Step>
-  <Step title="Move the joystick up or down to select a script, then press **A (Enter)** to open its execution page. MeowKit starts Bluetooth pairing advertising when you enter this page.">
+  <Step title="Select a script and press **A (Enter)**. MeowKit becomes discoverable as **MeowKit BadUSB** when its execution page opens.">
   </Step>
-  <Step title="In your computer’s Bluetooth settings, find **MeowKit BadUSB** and connect. Follow the computer’s prompts to complete pairing.">
+  <Step title="If needed, move the joystick up or down to open **Layout**. Select the keyboard layout used on your computer, then press **A (Apply)**.">
   </Step>
-  <Step title="Wait for MeowKit to display **READY / Connected**, confirming that keyboard input is ready.">
+  <Step title="In your computer’s Bluetooth settings, select **MeowKit BadUSB**.">
   </Step>
-  <Step title="Open the target application on your computer, make sure its input area has focus, then press **A (Run)** on MeowKit to execute the script.">
+  <Step title="Complete pairing. If both devices display a six-digit PIN, check that the numbers match, then press **A (Confirm)** on MeowKit and confirm on your computer. If your computer asks you to enter a PIN instead, enter the code shown on MeowKit.">
   </Step>
-  <Step title="To unpair MeowKit, forget or remove **MeowKit BadUSB** in your computer’s Bluetooth settings.">
+  <Step title="Wait for **Ready** on MeowKit.">
+  </Step>
+  <Step title="Open the target application on your computer and select its input area. Press **A (Run)** on MeowKit to start the script.">
   </Step>
 </Steps>
-
-<Warning>
-  BLE mode currently supports keyboard input only. Mouse and media-control commands are not sent, and `.kl` keyboard layouts are not applied. During execution, press **A** to stop, **B** to return to the list, or hold **B** to exit. Scripts do not automatically resume after a disconnection.
-</Warning>
 
 ---
